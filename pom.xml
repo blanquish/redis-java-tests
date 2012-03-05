@@ -13,13 +13,28 @@
     <module>pub-sub-model</module>
   </modules>
 
-  <!--dependency>
-    <groupId>redis.clients</groupId>
-    <artifactId>jedis</artifactId>
-    <version>2.0.0</version>
-    <type>jar</type>
-    <scope>compile</scope>
-  </dependency-->
+  <dependencies>
+    <dependency>
+      <groupId>redis.clients</groupId>
+      <artifactId>jedis</artifactId>
+      <version>2.0.0</version>
+      <type>jar</type>
+      <scope>compile</scope>
+    </dependency>
 
+    <dependency>
+      <groupId>com.google.guava</groupId>
+      <artifactId>guava</artifactId>
+      <version>11.0.1</version>
+    </dependency>
+
+    <dependency>
+      <groupId>joda-time</groupId>
+      <artifactId>joda-time</artifactId>
+      <version>1.6.2</version>
+    </dependency>
+
+  </dependencies>
+  
 
 </project>
