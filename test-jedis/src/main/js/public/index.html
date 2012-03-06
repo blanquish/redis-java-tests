@@ -1,6 +1,6 @@
 <html>
 <head>
-    <title>PubSub</title>
+    <title>Publisher - subscriptor</title>
     <script src="/socket.io/socket.io.js"></script>
     <script src="/javascripts/jquery-1.4.3.min.js"></script>
 </head>
@@ -8,14 +8,16 @@
     <div id="content"></div>
     <script>
         $(document).ready(function() {
-            var socket = new io.Socket('localhost', {port: 3000, rememberTransport: false/*, transports: ['xhr-polling']*/});
+            var socket = new io.connect();
             var content = $('#content');
 
             socket.on('connect', function() {
             });
 
             socket.on('message', function(message){
+                console.log("Received: [" + message +"]");
                 content.prepend(message + '<br />');
+                socket.emit('my other event', { my: 'data' });
             }) ;
 
             socket.on('disconnect', function() {
@@ -23,7 +25,6 @@
                 content.html("<b>Disconnected!</b>");
             });
 
-            socket.connect();
         });
     </script>
 </body>

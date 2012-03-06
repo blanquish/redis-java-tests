@@ -27,19 +27,20 @@ console.log("Express server listening on port %d in %s mode", app.address().port
 
 var io = sio.listen(app);
 
-io.on('connection', function (client) {
+io.sockets.on('connection', function (socket) {
 
-    redis_client = redis.createClient()
+    console.log("socket id [" + socket.id + "]");
+    var redis_client = redis.createClient();
     redis_client.subscribe("c1");
 
     redis_client.on("subscribe", function (channel, count) {
         console.log("client subscribed to '" + channel + "', '" + count + "' total subscriptions");
     });
 
-    redis_client.on("message", function(channel, json) {
+    redis_client.on("message", function(channel, message) {
     //	var data = JSON.parse(json);
-        console.log("client2 received message '" + json + "'");
-        io.broadcast(json);
+        console.log("client received message '" + message + "'");
+        socket.emit("message", message);
     });
 
     redis_client.on("error", function (err) {
@@ -50,8 +51,8 @@ io.on('connection', function (client) {
         console.log("client2 unsubscribed from " + channel + ", " + count + " total subscriptions");
     });
 
-    redis_client.quit(function (err, res) {
-        console.log("Exiting from quit command.");
-    });
+});
 
+io.configure( function() {
+    io.set('close timeout', 60*60*24); // 24h time out
 });
