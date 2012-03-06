@@ -5,20 +5,17 @@ client.on("error", function (err) {
     console.log("error event - " + client.host + ":" + client.port + " - " + err);
 });
 
-client.set("string key", "string val", redis.print);
-client.hset("hash key", "hashtest 1", "some value", redis.print);
-client.hset(["hash key", "hashtest 2", "some other value"], redis.print);
-client.hkeys("hash key", function (err, replies) {
-    if (err) {
-        return console.error("error response - " + err);
-    }
+client.on("subscribe", function (channel, count) {
+    console.log("client1 subscribed to '" + channel + "', '" + count + "' total subscriptions");
+});
 
-    console.log(replies.length + " replies:");
-    replies.forEach(function (reply, i) {
-        console.log("    " + i + ": " + reply);
-    });
+
+client.on("unsubscribe", function (channel, count) {
+    console.log("client1 unsubscribed from " + channel + ", " + count + " total subscriptions");
 });
 
 client.quit(function (err, res) {
     console.log("Exiting from quit command.");
 });
+
+client.subscribe("c1");
