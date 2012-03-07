@@ -14,13 +14,6 @@ app.configure(function() {
 	app.use(express.static(__dirname + '/public'));
 });
 
-// Routes
-//app.get("/", function(req, resp) {
-//	resp.json({ name: 'blanca' , count: Math.floor(Math.random()*11) })
-//});
-
-
-// http://stackoverflow.com/questions/4441798/how-to-use-redis-publish-subscribe-with-nodejs-to-notify-clients-when-data-value
 // Listen for requests
 app.listen(3000);
 console.log("Express server listening on port %d in %s mode", app.address().port, app.settings.env);
