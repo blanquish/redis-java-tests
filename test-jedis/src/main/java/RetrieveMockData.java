@@ -5,8 +5,8 @@ import com.google.gson.Gson;
 import redis.clients.jedis.Jedis;
 
 /**
+ * Lists all information stored in Redis by {@link FillMockData}
  * @author Blanca Garcia
- * @since X.X.X
  */
 public class RetrieveMockData {
 

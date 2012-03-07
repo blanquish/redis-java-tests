@@ -3,8 +3,8 @@ import java.util.Set;
 import redis.clients.jedis.Jedis;
 
 /**
+ * Quick code to delete all data fed by {@link FillMockData} program
  * @author Blanca Garcia
- * @since X.X.X
  */
 public class CleanMockData {
 

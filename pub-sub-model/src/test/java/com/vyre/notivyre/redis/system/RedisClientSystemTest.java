@@ -8,11 +8,6 @@ import org.mockito.runners.MockitoJUnitRunner;
 import redis.clients.jedis.JedisPubSub;
 
 /**
- * Created by IntelliJ IDEA.
- * User: blanca
- * Date: 18-Feb-2012
- * Time: 19:32:36
- * To change this template use File | Settings | File Templates.
  */
 
 @RunWith(MockitoJUnitRunner.class)

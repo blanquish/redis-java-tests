@@ -7,7 +7,9 @@ import java.io.InputStreamReader;
 import com.google.gson.Gson;
 
 /**
- * Simple publisher for REDIS to test
+ * Simple publisher for REDIS to test, gets text from
+ * the command line and publishes it to channel 'c1' on Redis
+ * 
  * @author Blanca Garcia
  *
  */

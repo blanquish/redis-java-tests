@@ -6,8 +6,8 @@ import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
 /**
+ * Object that holds all properties we want to store in Redis
  * @author Blanca Garcia
- * @since X.X.X
  */
 
 @SuppressWarnings("unused")
